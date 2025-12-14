@@ -121,13 +121,7 @@ if (isset($_POST['add_package'])) {
     $upload_dir = "uploads/";
     move_uploaded_file($tmp_name, $upload_dir.$image);
 
-    $insert = "INSERT INTO packages (name, price, duration, description, food_type, accommodation, available_slots, pickup_point, dropoff_point, transportation, image, 
-               day1_schedule, day2_schedule, day3_schedule, day4_schedule, day5_schedule, day6_schedule, day7_schedule, day8_schedule, day9_schedule, day10_schedule,
-               additional_pickups, food_menu, breakfast, lunch, dinner, start_date, end_date, daily_start_time, daily_end_time, transportation_details, activities, destination) 
-               VALUES ('$name','$price','$duration','$description','$food_type','$accommodation','$available_slots','$pickup_point','$dropoff_point','$transportation','$image',
-               '{$schedule_fields['day1_schedule']}','{$schedule_fields['day2_schedule']}','{$schedule_fields['day3_schedule']}','{$schedule_fields['day4_schedule']}','{$schedule_fields['day5_schedule']}',
-               '{$schedule_fields['day6_schedule']}','{$schedule_fields['day7_schedule']}','{$schedule_fields['day8_schedule']}','{$schedule_fields['day9_schedule']}','{$schedule_fields['day10_schedule']}',
-               '$additional_pickups','$food_menu','$breakfast','$lunch','$dinner','$start_date','$end_date','$daily_start_time','$daily_end_time','$transportation_details','$activities_details', '$destination')";
+   
     
     if (mysqli_query($conn, $insert)) {
         $package_id = mysqli_insert_id($conn);
@@ -940,5 +934,6 @@ include 'includes/admin_header.php';
 </body>
 
 </html>
+
 
 
