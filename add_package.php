@@ -12,25 +12,7 @@ if (!isset($_SESSION['ROLE']) || $_SESSION['ROLE'] !== 'admin') {
 }
 
 
-function sendPackageUpdateNotification($conn, $package_id, $package_name) {
-   
-    $title = "Package Updated";
-    $message = "The package '$package_name' has been updated. Please check the updated details.";
-    $type = "info";
-    
-    $insert_notification = "INSERT INTO notifications (package_id, title, message, type) VALUES ('$package_id', '$title', '$message', '$type')";
-    if (mysqli_query($conn, $insert_notification)) {
-        $notification_id = mysqli_insert_id($conn);
-        
-        // Get all users who have booked this package
-        $bookings_query = "SELECT DISTINCT user_id FROM bookings WHERE package_id = '$package_id'";
-        $bookings_result = mysqli_query($conn, $bookings_query);
-        
-        // Create user notifications for each user who booked this package
-        while ($booking = mysqli_fetch_assoc($bookings_result)) {
-            $user_id = $booking['user_id'];
-            $insert_user_notification = "INSERT INTO user_notifications (user_id, notification_id) VALUES ('$user_id', '$notification_id')";
-            mysqli_query($conn, $insert_user_notification);
+
         }
     }
 }
@@ -940,6 +922,7 @@ include 'includes/admin_header.php';
 </body>
 
 </html>
+
 
 
 
