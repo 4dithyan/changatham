@@ -2,7 +2,7 @@
 session_start();
 include 'config.php'; // DB connection
 
-// Select the database
+
 mysqli_select_db($conn, $database);
 
 
@@ -940,3 +940,4 @@ include 'includes/admin_header.php';
 </body>
 
 </html>
+
