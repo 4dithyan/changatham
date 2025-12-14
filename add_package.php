@@ -13,7 +13,7 @@ if (!isset($_SESSION['ROLE']) || $_SESSION['ROLE'] !== 'admin') {
 
 
 function sendPackageUpdateNotification($conn, $package_id, $package_name) {
-    // Create a notification in the notifications table
+   
     $title = "Package Updated";
     $message = "The package '$package_name' has been updated. Please check the updated details.";
     $type = "info";
@@ -940,4 +940,5 @@ include 'includes/admin_header.php';
 </body>
 
 </html>
+
 
