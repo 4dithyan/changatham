@@ -5,13 +5,13 @@ include 'config.php'; // DB connection
 // Select the database
 mysqli_select_db($conn, $database);
 
-// Check if user is admin
+
 if (!isset($_SESSION['ROLE']) || $_SESSION['ROLE'] !== 'admin') {
     header("Location: login.php");
     exit();
 }
 
-// Function to send notifications when a package is updated
+
 function sendPackageUpdateNotification($conn, $package_id, $package_name) {
     // Create a notification in the notifications table
     $title = "Package Updated";
@@ -938,4 +938,5 @@ include 'includes/admin_header.php';
     });
     </script>
 </body>
+
 </html>
